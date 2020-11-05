@@ -18,3 +18,5 @@ file up into chunks of 75-100 lines and process those separately.
 AllPrograms will write its results into an Output subdirectory.  Each CD will be written into a sub-directory of Output made up of the state and CD, such as AL1 for Alabama's first district.  This sub-directory will contain all of the file results for the district.  For a state there is no CD in the directory's name.  Alabama's statewide data is in directory AL, for example.
 
 ### Consolidate violation data from all CDs
+
+The report card's dotplot of violations per 100 facilities needs the violationsper1000__<State>-<district>-<datestamp>.csv for every congressional district to be consolidated into a single report.  Running the violations_per.py script will accomplish this. The following steps should be followed:
