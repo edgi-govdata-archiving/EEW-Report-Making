@@ -28,3 +28,7 @@ The report card's dotplot of violations per 100 facilities needs the violationsp
 3.  The files produced will be violationsper1000_CWA_all_cds.csv and violationsper1000_CWA_all_states.csv.  These need to be combined into a single file, violationsper1000_CWA_all_cds.csv, which needs to be placed in the nationalstats directory of CD-report.
 
 All CD directories need to have their state's violationsper1000_All file copied in from the state directory.  This can be done with the violations_state.py script.  Run this script from the same directory as before--i.e, the CD_Dirs directory.
+
+### Maps for districts
+
+This is a link to a zip file containing maps of all districts: https://drive.google.com/file/d/1TitM460QfU7nWeigApwhvSN6cQEBmGtt/view?usp=sharing 
