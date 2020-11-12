@@ -28,3 +28,19 @@ The report card's dotplot of violations per 100 facilities needs the violationsp
 3.  The files produced will be violationsper1000_CWA_all_cds.csv and violationsper1000_CWA_all_states.csv.  These need to be combined into a single file, violationsper1000_CWA_all_cds.csv, which needs to be placed in the nationalstats directory of CD-report.
 
 All CD directories need to have their state's violationsper1000_All file copied in from the state directory.  This can be done with the violations_state.py script.  Run this script from the same directory as before--i.e, the CD_Dirs directory.
+
+### Maps for districts
+
+This is a link to a zip file containing maps of all districts: https://drive.google.com/file/d/1TitM460QfU7nWeigApwhvSN6cQEBmGtt/view?usp=sharing 
+
+Maps can be generated with the RegionMaps notebook in the ECHO-Cross-Programs repository.  The notebook now sizes and bounds the maps so they will be an appropriate size and won't need hand editing as they did in the past.  The notebook needs to be run on a system with a headless Chrome installed, and with a web server.  The HTML maps from the notebook run on the ECHO data for the district are put into a directory known by the web server and opened automatically by Chrome.  The Selenium package can then take a screen shot to produce the needed .png file.  (The ECHO data often has facilities outside of the district which have distorted the bounds of the map.  Such facilities are discarded in the current version of the RegionMaps notebook.)
+
+### Legislator information
+
+#### Legislator photo
+
+The image for each legislator is obtained with a script (get_leg_image.py) that retrieves the image from their page at govtrack.us, using a govtrack_id that is published in the legislators-current.csv file from https://theunitedstates.io/congress-legislators/legislators-current.csv.  The images are saved in a CD_images directory in a format like AK0_rep.jpeg, AL1_rep.jpeg for representatives, and AK_sen2.jpeg for senators.  The digit following "sen" in the senator's file name refers to a field called "senate_class" in legislators-current.csv.  This needs to be used to distinguish between the two senators in a state.  The "senate_class" field will need to be added to the nationalstats/housememberinfo.csv that is used by R to generate the report card.
+
+#### Committee membership
+
+
