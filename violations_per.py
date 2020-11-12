@@ -38,6 +38,7 @@ def main( argv ):
         for file_obj in currentDir.iterdir():
             c_file = str( file_obj )
             if ( region_pat.match( c_file )):
+                print( 'processing {}'.format( c_file ))
                 viol_filename = base_filename
                 if ( region == 'cds' ):
                     # The current directory name will be like AL1, TX22, AL, AL0
@@ -46,8 +47,9 @@ def main( argv ):
                     viol_filename += '_' + c_file[:2]
                     # States with the digit 0 are those with only 1 district.
                     if ( c_file[2] != '0' ):
-                        viol_filename += '-' + c_file[2:]
+                        viol_filename += '-' + c_file[2:] + '-'
                 file_pat = re.compile( viol_filename )
+                print( 'Looking for {}'.format( file_pat ))
                 # pdb.set_trace()
                 for data_file in file_obj.iterdir():
                     viol_file = str( data_file )
@@ -62,5 +64,6 @@ def main( argv ):
                                         writeCSV.writerow( [c_file[:2], row[1], region_name ])
                                     else:
                                         writeCSV.writerow( [c_file, row[1], region_name ])
+                                    print( 'wrote {}'.format( c_file ))
 if __name__ == "__main__":
     main( sys.argv[1:] )

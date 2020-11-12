@@ -11,7 +11,7 @@ def main( argv ):
        'Consolidate all violationsper1000_pg4 files into violationsper1000_all.csv' )
     parser.parse_args( argv )
 
-    state_pat = re.compile( '[A-Z][A-Z]0?$' )
+    state_pat = re.compile( '[A-Z][A-Z]$' )
     
     base_filename = 'violationsper1000_All_pg4'
     
@@ -22,7 +22,11 @@ def main( argv ):
         if ( state_pat.match( c_dir )):
             state = c_dir
             viol_filename = base_filename + '_' + state + '-[0-9]*.csv'
-            file1 = glob.glob( state + '/' + viol_filename )[0]
+            try:
+                file1 = glob.glob( state + '/' + viol_filename )[0]
+            except IndexError:
+                print( '{} does not have the {} file'.format(
+                     state, viol_filename ))
             for file_obj2 in currentDir.iterdir():
                 c_dir2 = str( file_obj2 )
                 if state != c_dir2 and state in c_dir2:
