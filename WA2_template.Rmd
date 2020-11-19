@@ -92,7 +92,7 @@ WA2 <- housemembers[which(housemembers$CD=="WA2"), ]
 
 ## Why Report Cards on compliance with and enforcement of Environmental Laws?
 
-The Environmental Protection Agency (EPA) is charged by Congress to enforce laws that protect people from air pollution, water pollution and hazardous waste. **Without effective enforcement, these laws are meaningless**. Based on data from EPA’s Enforcement and Compliance History Online (ECHO) database this report card reviews violations, inspections and enforcement actions under three laws: Clean Air Act (CAA), Clean Water Act (CWA) and Resource Conservation and Recovery Act (RCRA) for this congressional district since 2001. Report cards are available on the [EEW website](https://www.environmentalenforcementwatch.org) for all members of the key congressional committees that oversee the EPA: the House Energy and Commerce Committee and Senate Environment and Public Works Committee. The [EEW website](https://www.environmentalenforcementwatch.org) also has a summary analysis of nationwide enforcement trends and data issues. The report cards contain data from *both* state environmental agencies and EPA. Provided  states are enforcing the above laws, it is because EPA has delegated that authority to them. EPA must ensure that states are doing their job. Congress must ensure that EPA is doing its job. And the public must have accurate data from states and EPA in order to understand if national environmental laws are being properly enforced. For the first time, EEW Congressional Report Cards give members of Congress and their constituents the chance to evaluate whether EPA is fulfilling its mandate in their district. Congress can strengthen EPA enforcement by increasing its budget, passing more effective laws, requiring better data collection, and holding EPA accountable when it fails to protect people.
+The Environmental Protection Agency (EPA) is charged by Congress to enforce laws that protect people from air pollution, water pollution and hazardous waste. **Without effective enforcement, these laws are meaningless**. Based on data from EPA’s Enforcement and Compliance History Online (ECHO) database this report card reviews violations, inspections and enforcement actions under three laws: Clean Air Act (CAA), Clean Water Act (CWA) and Resource Conservation and Recovery Act (RCRA) for this Congressional District or State since 2001. Report cards like this one are becoming available on the [EEW website](https://www.environmentalenforcementwatch.org) for all House Representatives and Senators. The [EEW website](https://www.environmentalenforcementwatch.org) also has a summary analysis of enforcement trends and data issues for all geographies covered by the House Energy and Commerce and Senate Environment and Public Works Committees. The report cards contain data from *both* state environmental agencies and EPA. Provided  states are enforcing the above laws, it is because EPA has delegated that authority to them. EPA must ensure that states are doing their job. Congress must ensure that EPA is doing its job. And the public must have accurate data from states and EPA in order to understand if national environmental laws are being properly enforced. For the first time, EEW Congressional Report Cards give members of Congress and their constituents the chance to evaluate whether EPA is fulfilling its mandate in their district. Congress can strengthen EPA enforcement by increasing its budget, passing more effective laws, requiring better data collection, and holding EPA accountable when it fails to protect people.
 
 
 
@@ -438,11 +438,11 @@ The reliability of data in figures throughout this report is indicated by the fi
 #let's combine the inspections data at national, state, CD level 
 names(USAinspectionsper1000_All)[2] <- "Inspectionsper1000"
 USAinspectionsper1000_All$Region <- as.factor("National")
-names(`inspectionsper1000_All_pg4_WA-101520.csv`)[2] <- "Inspectionsper1000"
-`inspectionsper1000_All_pg4_WA-101520.csv`$Region <- as.factor("State")
+names(`inspectionsper1000_All_pg4_WA-102320.csv`)[2] <- "Inspectionsper1000"
+`inspectionsper1000_All_pg4_WA-102320.csv`$Region <- as.factor("State")
 names(`inspectionsper1000_All_pg4_WA-2`)[2] <- "Inspectionsper1000"
 `inspectionsper1000_All_pg4_WA-2`$Region <- as.factor("Congressional District")
-inspectionsper1000 <- rbind(USAinspectionsper1000_All, `inspectionsper1000_All_pg4_WA-101520.csv`, `inspectionsper1000_All_pg4_WA-2`)
+inspectionsper1000 <- rbind(USAinspectionsper1000_All, `inspectionsper1000_All_pg4_WA-102320.csv`, `inspectionsper1000_All_pg4_WA-2`)
 inspectionsper1000$Inspectionsper1000 <- as.numeric(inspectionsper1000$Inspectionsper1000)
 inspectionsper1000[2] <-round(inspectionsper1000[2],0) 
 
@@ -462,11 +462,11 @@ inspect1000bar <- ggplot(inspectionsper1000, aes(fill=Region, y=Inspectionsper10
 #let's combine the violations data at national, state, CD level 
 names(USAviolationsper1000_All)[2] <- "violationsper1000"
 USAviolationsper1000_All$Region <- as.factor("National")
-names(`violationsper1000_All_pg4_WA-101520.csv`)[2] <- "violationsper1000"
-`violationsper1000_All_pg4_WA-101520.csv`$Region <- as.factor("State")
+names(`violationsper1000_All_pg4_WA-102320.csv`)[2] <- "violationsper1000"
+`violationsper1000_All_pg4_WA-102320.csv`$Region <- as.factor("State")
 names(`violationsper1000_All_pg4_WA-2`)[2] <- "violationsper1000"
 `violationsper1000_All_pg4_WA-2`$Region <- as.factor("Congressional District")
-violationsper1000 <- rbind(USAviolationsper1000_All, `violationsper1000_All_pg4_WA-101520.csv`, `violationsper1000_All_pg4_WA-2`)
+violationsper1000 <- rbind(USAviolationsper1000_All, `violationsper1000_All_pg4_WA-102320.csv`, `violationsper1000_All_pg4_WA-2`)
 violationsper1000$violationsper1000 <- as.numeric(violationsper1000$violationsper1000)
 violationsper1000[2] <-round(violationsper1000[2],0)
 
@@ -584,46 +584,80 @@ ggsave("RCRAfacilities.png", RCRAfacilities, path=here("CD_Dirs/WA2"), scale = 3
 
 <font size="3">**ECHO reports for facilities:**</font>
 
-* <font size="2">[`r CAAbadactors[1,8] `](`r CAAbadactors[1,5] `)</font>
-* <font size="2">[`r CAAbadactors[2,8] `](`r CAAbadactors[2,5] `)</font>
-* <font size="2">[`r CAAbadactors[3,8] `](`r CAAbadactors[3,5] `)</font>
-* <font size="2">[`r CAAbadactors[4,8] `](`r CAAbadactors[4,5] `)</font>
-* <font size="2">[`r CAAbadactors[5,8] `](`r CAAbadactors[5,5] `)</font>
-* <font size="2">[`r CAAbadactors[6,8] `](`r CAAbadactors[6,5] `)</font>
-* <font size="2">[`r CAAbadactors[7,8] `](`r CAAbadactors[7,5] `)</font>
-* <font size="2">[`r CAAbadactors[8,8] `](`r CAAbadactors[8,5] `)</font>
-* <font size="2">[`r CAAbadactors[9,8] `](`r CAAbadactors[9,5] `)</font>
-* <font size="2">[`r CAAbadactors[10,8] `](`r CAAbadactors[10,5] `)</font>
+<font size="2">[`r na.omit(CAAbadactors[1,8]) `](`r na.omit(CAAbadactors[1,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[2,8]) `](`r na.omit(CAAbadactors[2,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[3,8]) `](`r na.omit(CAAbadactors[3,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[4,8]) `](`r na.omit(CAAbadactors[4,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[5,8]) `](`r na.omit(CAAbadactors[5,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[6,8]) `](`r na.omit(CAAbadactors[6,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[7,8]) `](`r na.omit(CAAbadactors[7,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[8,8]) `](`r na.omit(CAAbadactors[8,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[9,8]) `](`r na.omit(CAAbadactors[9,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CAAbadactors[10,8]) `](`r na.omit(CAAbadactors[10,5]) `)</font>
+<br />
 
 <a ><img src="../CD_Dirs/WA2/CWAfacilities.png" style="float: left; width: 65%; height: 60%; margin-right: 5%" ></a>
 
 <font size="3">**ECHO reports for facilities:**</font>
 
-* <font size="2">[`r CWAbadactors[1,8] `](`r CWAbadactors[1,5] `)</font>
-* <font size="2">[`r CWAbadactors[2,8] `](`r CWAbadactors[2,5] `)</font>
-* <font size="2">[`r CWAbadactors[3,8] `](`r CWAbadactors[3,5] `)</font>
-* <font size="2">[`r CWAbadactors[4,8] `](`r CWAbadactors[4,5] `)</font>
-* <font size="2">[`r CWAbadactors[5,8] `](`r CWAbadactors[5,5] `)</font>
-* <font size="2">[`r CWAbadactors[6,8] `](`r CWAbadactors[6,5] `)</font>
-* <font size="2">[`r CWAbadactors[7,8] `](`r CWAbadactors[7,5] `)</font>
-* <font size="2">[`r CWAbadactors[8,8] `](`r CWAbadactors[8,5] `)</font>
-* <font size="2">[`r CWAbadactors[9,8] `](`r CWAbadactors[9,5] `)</font>
-* <font size="2">[`r CWAbadactors[10,8] `](`r CWAbadactors[10,5] `)</font>
+<font size="2">[`r na.omit(CWAbadactors[1,8]) `](`r na.omit(CWAbadactors[1,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[2,8]) `](`r na.omit(CWAbadactors[2,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[3,8]) `](`r na.omit(CWAbadactors[3,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[4,8]) `](`r na.omit(CWAbadactors[4,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[5,8]) `](`r na.omit(CWAbadactors[5,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[6,8]) `](`r na.omit(CWAbadactors[6,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[7,8]) `](`r na.omit(CWAbadactors[7,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[8,8]) `](`r na.omit(CWAbadactors[8,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[9,8]) `](`r na.omit(CWAbadactors[9,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(CWAbadactors[10,8]) `](`r na.omit(CWAbadactors[10,5]) `)</font>
+<br />
+
 
 <a ><img src="../CD_Dirs/WA2/RCRAfacilities.png" style="float: left; width: 65%; height: 60%; margin-right: 5%" ></a>
 
+<br />
+
 <font size="3">**ECHO reports for facilities:**</font>
 
-* <font size="2">[`r RCRAbadactors[1,8] `](`r RCRAbadactors[1,5] `)</font>
-* <font size="2">[`r RCRAbadactors[2,8] `](`r RCRAbadactors[2,5] `)</font>
-* <font size="2">[`r RCRAbadactors[3,8] `](`r RCRAbadactors[3,5] `)</font>
-* <font size="2">[`r RCRAbadactors[4,8] `](`r RCRAbadactors[4,5] `)</font>
-* <font size="2">[`r RCRAbadactors[5,8] `](`r RCRAbadactors[5,5] `)</font>
-* <font size="2">[`r RCRAbadactors[6,8] `](`r RCRAbadactors[6,5] `)</font>
-* <font size="2">[`r RCRAbadactors[7,8] `](`r RCRAbadactors[7,5] `)</font>
-* <font size="2">[`r RCRAbadactors[8,8] `](`r RCRAbadactors[8,5] `)</font>
-* <font size="2">[`r RCRAbadactors[9,8] `](`r RCRAbadactors[9,5] `)</font>
-* <font size="2">[`r RCRAbadactors[10,8] `](`r RCRAbadactors[10,5] `)</font>
+<font size="2">[`r na.omit(RCRAbadactors[1,8]) `](`r na.omit(RCRAbadactors[1,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[2,8]) `](`r na.omit(RCRAbadactors[2,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[3,8]) `](`r na.omit(RCRAbadactors[3,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[4,8]) `](`r na.omit(RCRAbadactors[4,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[5,8]) `](`r na.omit(RCRAbadactors[5,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[6,8]) `](`r na.omit(RCRAbadactors[6,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[7,8]) `](`r na.omit(RCRAbadactors[7,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[8,8]) `](`r na.omit(RCRAbadactors[8,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[9,8]) `](`r na.omit(RCRAbadactors[9,5]) `)</font>
+<br />
+<font size="2">[`r na.omit(RCRAbadactors[10,8]) `](`r na.omit(RCRAbadactors[10,5]) `)</font>
+<br />
+
 
 \pagebreak
 
@@ -941,9 +975,19 @@ These figures show patterns of RCRA inspections, violations, enforcement actions
 
 ## In office since `r WA2[1,6]` `r WA2[1,7]`, `r WA2[1,8]`
 
-## Committee Membership:  [Transportation and Infrastructure Committee](https://transportation.house.gov/)
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-## Committee Membership:  [Armed Services Committee](https://armedservices.house.gov/)
+### This member of Congress serves on the following committees: 
+
+links to committees will appear here once pulled 
+
+
+## Add a blurb about what house reps can do generally here 
 
 \pagebreak
 
@@ -1030,7 +1074,8 @@ Environmental Enforcement Watch (EEW) is a collaborative project across working 
 <h3><span style="color:#569b5e">A full list of EEW members, including their roles in this project, can be found [here](https://www.environmentalenforcementwatch.org/about/).</span></h3> 
 
 ### About this Project 
-This EEW project aims to make EPA data more directly accessible to the public and their representatives. With the goal of reaching the Representatives and Senators who oversee the EPA, EEW has made report cards for the 76 Senators and House Representatives that sit on the House Energy & Commerce Committee and the Senate Environment & Public Works Committee, as these committees are responsible for EPA oversight. By providing a novel look at the chronic state of non-compliance in their states and districts, we hope to provide these key representatives with the information they need to evaluate the state of environmental law compliance and enforcement in their communities so they might more effectively hold EPA accountable.
+This EEW project aims to make EPA data more directly accessible to the public and their representatives.In our first iteration of this project, we released reports for the 76  Senators and House Representatives that sit on the House Energy & Commerce Committee and the Senate Environment & Public Works Committee. We are now making report cards available for *every* state and congressional district in the US. By providing a novel look at the chronic state of non-compliance, we hope to provide representatives with the information they need to evaluate the state of environmental law compliance and enforcement in their communities so they might more effectively hold EPA accountable.
+
 
 ### Useful Links
 [State and Congressional District Jupyter Notebooks](https://colab.research.google.com/github/edgi-govdata-archiving/ECHO-Cross-Program/blob/master/AllPrograms.ipynb) | 
