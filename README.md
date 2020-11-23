@@ -38,7 +38,6 @@ Maps can be generated with the RegionMaps notebook in the ECHO-Cross-Programs re
 The resulting maps should be put into a CD_maps directory that is in parallel with the reportcards and CD_Dirs directories.
 
 
-
 ### Legislator information
 
 #### Legislator photo
@@ -71,9 +70,14 @@ A state_names.csv file in the cd_todos directory is also used to map the state/C
   SEDs/sedfile_XXX.txt   ---> make_reports.py   ---> New/AL1_2020.Rmd, etc.
   
 
-#### Directory structure for running report cards
-
+#### Directory structure for making report cards
+```
 CD-report
+  |
+  |- cds_todo
+       |
+       |- cds_todo_1.csv
+          ...
   |
   |- reportcards
        |
@@ -97,5 +101,5 @@ CD-report
        |
        |- AL1_rep.jpeg
           ...
-          
+  ```        
 
