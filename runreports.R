@@ -2,13 +2,13 @@
 #defined in list.files(here()), in this example that folder is "pagedown"
 #the folder listed in line 9 in output_dir, needs to be an already created folder where you want the
 #output .pdfs and .htmls to reside
-
-filenames2 = list.files(here("pagedown"), pattern = ".Rmd")
+library(pagedown)
+library(here)
+filenames2 = list.files(here("reportcards"), pattern = ".Rmd")
 file_count = length(filenames2)
 for (x in filenames2) {
 pagedown::chrome_print(rmarkdown::render(
-  here("pagedown/",x), envir = new.env(),clean = TRUE, output_dir = (here("outputs"))))
-
+  here("reportcards/",x), envir = new.env(),clean = TRUE, output_dir = (here("Outputs"))))
 }
 
 #left to do: how to get it to move into the GH pages branch - and discriminate based on file extenstion

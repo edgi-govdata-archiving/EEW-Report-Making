@@ -50,7 +50,8 @@ for leg in obj:
     sen_class = ''
     official_url = ''
     for term in terms:
-        if ( term['type'] != sen_rep ):
+        if ( term['type'] != sen_rep or 
+              ( term['type'] == 'rep' and term['district'] != district )):
             # Will be true the first time through, and with change rep <--> sen
             sen_rep = term['type']
             start_date = datetime.datetime.strptime( term['start'], '%Y-%m-%d' )
