@@ -23,8 +23,8 @@ The report card's dotplot of violations per 100 facilities needs the violationsp
   
 1.  Run violations_per.py from the parent directory of all the CD/State directories.  If CD_Dirs is the parent directory containing directories AL, AL1, etc., run the script from CD_Dirs.  Make sure all directories that you want to be included are present.
 2.  Run the script twice--once for CDs and once for states:
-    violations_per.py --region cds
-    violations_per.py --region states
+    - violations_per.py --region cds
+    - violations_per.py --region states
 3.  The files produced will be violationsper1000_CWA_all_cds.csv and violationsper1000_CWA_all_states.csv.  These need to be combined into a single file, violationsper1000_CWA_all_cds.csv, which needs to be placed in the nationalstats directory of CD-report.
 
 All CD directories need to have their state's violationsper1000_All file copied in from the state directory.  This can be done with the violations_state.py script.  Run this script from the same directory as before--i.e, the CD_Dirs directory.
