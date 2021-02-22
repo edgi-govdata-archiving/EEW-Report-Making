@@ -37,6 +37,9 @@ Maps can be generated with the RegionMaps notebook in the ECHO-Cross-Programs re
 
 The resulting maps should be put into a CD_maps directory that is in parallel with the reportcards and CD_Dirs directories.
 
+### Maps for states
+
+We don't yet have an automated way to generate state maps for Senator report cards.  There are too many facilities in most states to generate the maps as we do them for congressional districts.  In the first iteration, the numbers of facilities for CAA, CWA and RCRA were put into dots on an empty map of the state.
 
 ### Legislator information
 
