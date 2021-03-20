@@ -68,11 +68,21 @@ A state_names.csv file in the cd_todos directory is also used to map the state/C
 
   ../cd_todos/cd_todos_1.csv
   ../cd_todos/state_names.csv   ---> make_sedfiles.py   ---> SEDs/sedfile_AL1.txt, etc.
+                                                        ---> make_reports.sh
+  
+  usage: make_sedfiles.py [-h] -c CDS_FILE -s STATES_FILE
+  example: python make_sedfiles.py -c ../cds_todo/todo.csv -s ../cds_todo/state_names.csv
+  
+The make_reports.sh file created by make_sedfiles.py can create the desired .Rmd markdown files from the template with the edits required for the congressional district.  The shell script can be run without any arguments.
   
   WA2_template.Rmd
-  SEDs/sedfile_XXX.txt   ---> make_reports.py   ---> New/AL1_2020.Rmd, etc.
+  SEDs/sedfile_XXX.txt   ---> make_reports.sh   ---> New/AL1_2020.Rmd, etc.
   
+The .Rmd files from the New folder are copied into the reportcards folder, and the runreports.R script is run from the EEW-Report-Making folder (the parent folder of reportcards).  This script will process all of the .Rmd files it finds in the reportcards folder, so after
+successfully producing the HTML and PDF results, the .Rmd files should be moved into the reportcards/Completed-Rmds folder.
 
+  reportcards/AL1_2020.rmd, etc   --_> runreports.R    ---> AL1_2020.html, AL1_2020.pdf, etc.
+  
 #### Directory structure for making report cards
 ```
 CD-report
@@ -81,6 +91,7 @@ CD-report
        |
        |- cds_todo_1.csv
           ...
+       |- state_names.csv
   |
   |- reportcards
        |
