@@ -17,10 +17,10 @@ def main( argv ):
     cds_todo_file = my_args.cds_file
     states_file = my_args.states_file
 
-    template_filename = "WA2_template_seh.Rmd"
-    template_state_cd = "Washington's 2nd" 
-    template_cd = "2nd"
-    template_st = "WA"
+    template_filename = "NY14_template.Rmd"
+    template_state_cd = "New York's 14th" 
+    template_cd = "14th"
+    template_st = "NY"
     template_data_date = "102320"
     data_date = "102320"
     bash_name = "make_reports.sh"
@@ -50,13 +50,13 @@ def main( argv ):
                 str = "s/{}/{} {}{}/g\n".format( template_state_cd, state_names[state],
                        cd, suff )
                 write_obj.write( str )
-                str = "s/WA 2/{} {}/g\n".format( state, cd )
+                str = "s/NY 14/{} {}/g\n".format( state, cd )
                 write_obj.write( str )
-                str = "s/_WA-2/_{}-{}/g\n".format( state, cd )
+                str = "s/_NY-14/_{}-{}/g\n".format( state, cd )
                 write_obj.write( str )
-                str = "s/WA2/{}{}/g\n".format( state, cd )
+                str = "s/NY14/{}{}/g\n".format( state, cd )
                 write_obj.write( str )
-                str = "s/_WA-/_{}-/g\n".format( state )
+                str = "s/_NY-/_{}-/g\n".format( state )
                 write_obj.write( str )
                 if ( template_data_date != data_date ):
                     str = "s/{}/{}\n".format( template_data_date, data_date )
