@@ -5,6 +5,15 @@ The AllPrograms Jupyter notebook in the ECHO-Cross-Program repository can be use
 congressional districts or states.  The process and programs in this repository use that data and gather additional
 information such as maps and legislator material to enable the generation of report cards using an R Markdown template.
 
+### Tools used
+- R / R Studio
+- Jupyter Notebooks
+- headless Chrome / Selenium package
+- SQLite database
+- Python
+- Bash shell, including sed command
+
+
 ### Get data from the AllPrograms notebook
 The all_cds.csv file in this repository contains a list of all congressional districts and states.  The two pieces of information
 per line are the two-letter state abbreviation and a congressional district number.  States simply use a 0 in the congressional
