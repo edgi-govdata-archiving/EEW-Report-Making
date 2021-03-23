@@ -23,8 +23,8 @@ The report card's dotplot of violations per 100 facilities needs the violationsp
   
 1.  Run violations_per.py from the parent directory of all the CD/State directories.  If CD_Dirs is the parent directory containing directories AL, AL1, etc., run the script from CD_Dirs.  Make sure all directories that you want to be included are present.
 2.  Run the script twice--once for CDs and once for states:
-    violations_per.py --region cds
-    violations_per.py --region states
+    - violations_per.py --region cds
+    - violations_per.py --region states
 3.  The files produced will be violationsper1000_CWA_all_cds.csv and violationsper1000_CWA_all_states.csv.  These need to be combined into a single file, violationsper1000_CWA_all_cds.csv, which needs to be placed in the nationalstats directory of CD-report.
 
 All CD directories need to have their state's violationsper1000_All file copied in from the state directory.  This can be done with the violations_state.py script.  Run this script from the same directory as before--i.e, the CD_Dirs directory.
@@ -37,6 +37,9 @@ Maps can be generated with the RegionMaps notebook in the ECHO-Cross-Programs re
 
 The resulting maps should be put into a CD_maps directory that is in parallel with the reportcards and CD_Dirs directories.
 
+### Maps for states
+
+We don't yet have an automated way to generate state maps for Senator report cards.  There are too many facilities in most states to generate the maps as we do them for congressional districts.  In the first iteration, the numbers of facilities for CAA, CWA and RCRA were put into dots on an empty map of the state.
 
 ### Legislator information
 
@@ -65,11 +68,21 @@ A state_names.csv file in the cd_todos directory is also used to map the state/C
 
   ../cd_todos/cd_todos_1.csv
   ../cd_todos/state_names.csv   ---> make_sedfiles.py   ---> SEDs/sedfile_AL1.txt, etc.
+                                                        ---> make_reports.sh
+  
+  usage: make_sedfiles.py [-h] -c CDS_FILE -s STATES_FILE
+  example: python make_sedfiles.py -c ../cds_todo/todo.csv -s ../cds_todo/state_names.csv
+  
+The make_reports.sh file created by make_sedfiles.py can create the desired .Rmd markdown files from the template with the edits required for the congressional district.  The shell script can be run without any arguments.
   
   WA2_template.Rmd
-  SEDs/sedfile_XXX.txt   ---> make_reports.py   ---> New/AL1_2020.Rmd, etc.
+  SEDs/sedfile_XXX.txt   ---> make_reports.sh   ---> New/AL1_2020.Rmd, etc.
   
+The .Rmd files from the New folder are copied into the reportcards folder, and the runreports.R script is run from the EEW-Report-Making folder (the parent folder of reportcards).  This script will process all of the .Rmd files it finds in the reportcards folder, so after
+successfully producing the HTML and PDF results, the .Rmd files should be moved into the reportcards/Completed-Rmds folder.
 
+  reportcards/AL1_2020.rmd, etc   --_> runreports.R    ---> AL1_2020.html, AL1_2020.pdf, etc.
+  
 #### Directory structure for making report cards
 ```
 CD-report
@@ -78,6 +91,7 @@ CD-report
        |
        |- cds_todo_1.csv
           ...
+       |- state_names.csv
   |
   |- reportcards
        |
