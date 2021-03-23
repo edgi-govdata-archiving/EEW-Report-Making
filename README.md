@@ -62,7 +62,7 @@ Legislator information and committee membership is taken from JSON files at http
 
 The CSVs listed in the cd_todos directory files are used to generate batches of the R markdown .Rmd files that create the report cards.
 
-From the reportcards directory, the make_sedfiles.py script creates a file of replacement editing commands to be run against the template .Rmd file to make the .Rmd for the CD.  This script also creates the make_reports.sh bash shell script the calls upon the sedfiles to do the editing for each CD.
+From the reportcards directory, the make_sedfiles.py script creates a file of replacement editing commands to be run against the template .Rmd file to make the .Rmd for the CD.  This script also creates the make_reports.sh bash shell script that calls upon the sedfiles to do the editing for each CD.
 
 A state_names.csv file in the cd_todos directory is also used to map the state/CD from the cds_todo_X.csv files to the full possessive state name, e.g. AL,1 --> Alabama's 1st.
 
@@ -95,7 +95,17 @@ CD-report
   |
   |- reportcards
        |
-       |- AL1_2020.Rmd
+       |- AL1_2020.Rmd  (moved from New)
+          ...
+       |- New
+           | - AL1_2020.Rmd  (when created)
+          ...
+       |- SEDs
+           | - sedfile_Al1.txt
+          ...
+       |- Templates
+           | - NY14_template.Rmd  (template for CD)
+           | - TX_template.Rmd  (template for Senators in state)
           ...
   |
   |- CD_Dirs
@@ -115,5 +125,10 @@ CD-report
        |
        |- AL1_rep.jpeg
           ...
-  ```        
+   |- Outputs
+       |
+       |- AL1_2020.html
+       |- AL1_2020.pdf
+          ...
+ ```        
 
