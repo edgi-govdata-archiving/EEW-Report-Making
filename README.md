@@ -8,8 +8,8 @@ information such as maps and legislator material to enable the generation of rep
 ### Tools used
 - R / R Studio
 - Jupyter Notebooks
-- headless Chrome / Selenium package
-- SQLite database
+- headless Chrome / Selenium package (for making maps)
+- SQLite database (for legislator info)
 - Python
 - Bash shell, including sed command
 
