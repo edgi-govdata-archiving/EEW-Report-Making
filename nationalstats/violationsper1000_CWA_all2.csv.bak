@@ -1,0 +1,501 @@
+CD/State,Num per 1000,Region
+AZ5,0,Congressional Districts 
+TX24,3.9761431412,Congressional Districts 
+TX20,9.7847358121,Congressional Districts 
+NV4,11.0192837466,Congressional Districts 
+NV3,12.3188405797,Congressional Districts 
+TX33,18.9701897,Congressional Districts 
+MN4,25,Congressional Districts 
+NV1,31.2989045383,Congressional Districts 
+FL24,31.914893617,Congressional Districts 
+AZ6,32.7868852459,Congressional Districts 
+TX3,37.4639769452,Congressional Districts 
+FL25,44.7058823529,Congressional Districts 
+TX30,51.4800514801,Congressional Districts 
+FL26,52.8455284553,Congressional Districts 
+TX35,54.367201426,Congressional Districts 
+TX16,61.7059891107,Congressional Districts 
+UT4,61.7678381257,Congressional Districts 
+FL23,62.2222222222,Congressional Districts 
+UT2,63.2653061224,Congressional Districts 
+FL27,71.6845878136,Congressional Districts 
+UT3,73.5912531539,Congressional Districts 
+TX21,74.6691871456,Congressional Districts 
+NV2,75.8873929009,Congressional Districts 
+IN7,78.2361308677,Congressional Districts 
+GA13,82.0134519419,Congressional Districts 
+MN5,86.9565217391,Congressional Districts 
+OR1,87.5,Congressional Districts 
+KS3,89.2420537897,Congressional Districts 
+TX9,91.2200684151,Congressional Districts 
+OR3,97.1223021583,Congressional Districts 
+GA6,100.8537886873,Congressional Districts 
+OR5,103.1976744,Congressional Districts 
+FL7,103.7735849057,Congressional Districts 
+MA7,105.7401812689,Congressional Districts 
+FL20,107.2,Congressional Districts 
+TX19,107.5949367089,Congressional Districts 
+NC12,109.3333333333,Congressional Districts 
+FL22,112.9943502825,Congressional Districts 
+FL21,113.1105398458,Congressional Districts 
+UT1,115.6419241797,Congressional Districts 
+PA2,116.6666666667,Congressional Districts 
+AZ9,125,Congressional Districts 
+GA7,125.8183888414,Congressional Districts 
+FL10,130.5460750853,Congressional Districts 
+TN5,134.2995169082,Congressional Districts 
+NM1,136.1111111111,Congressional Districts 
+TX32,140.6649616368,Congressional Districts 
+FL8,148.8372093023,Congressional Districts 
+FL11,152.1367521368,Congressional Districts 
+TX12,152.8795811518,Congressional Districts 
+FL12,161.0284168,Congressional Districts 
+MN3,161.2903225806,Congressional Districts 
+KS4,162.4365482234,Congressional Districts 
+FL9,164.6757679,Congressional Districts 
+TX31,166.4473684211,Congressional Districts 
+GA11,172.853499575,Congressional Districts 
+TX26,177.5631501,Congressional Districts 
+FL19,182.0866141732,Congressional Districts 
+TX6,193.232413179,Congressional Districts 
+TN9,193.5483870968,Congressional Districts 
+GA3,193.982581156,Congressional Districts 
+FL3,195.079086116,Congressional Districts 
+TX22,195.5782313,Congressional Districts 
+FL16,198.2421875,Congressional Districts 
+FL14,206.2572422,Congressional Districts 
+AL5,209.4594594595,Congressional Districts 
+GA9,222.9945519444,Congressional Districts 
+FL4,223.8147739802,Congressional Districts 
+OR4,224.7510668563,Congressional Districts 
+TX10,225.3613666229,Congressional Districts 
+TN2,225.9507829978,Congressional Districts 
+FL18,226.7206477733,Congressional Districts 
+FL15,226.7605633803,Congressional Districts 
+NC4,229.381443299,Congressional Districts 
+TX18,234.4322344322,Congressional Districts 
+SC4,236.2869198312,Congressional Districts 
+MA6,247.0817120623,Congressional Districts 
+GA10,247.2085752568,Congressional Districts 
+TX2,249.1228070175,Congressional Districts 
+NH1,261.4942528736,Congressional Districts 
+TX23,265.3721682848,Congressional Districts 
+FL5,273.6418511066,Congressional Districts 
+NM2,277.9316712835,Congressional Districts 
+PA13,286.2745098039,Congressional Districts 
+MA3,293.5779816514,Congressional Districts 
+GA14,296.7532467532,Congressional Districts 
+FL6,300.7683863886,Congressional Districts 
+NC1,302.4602026,Congressional Districts 
+MA1,308.3197389886,Congressional Districts 
+FL2,312.7413127413,Congressional Districts 
+MA9,314.2857142857,Congressional Districts 
+FL17,318.9655172414,Congressional Districts 
+TX28,320.5689277899,Congressional Districts 
+TN1,326.9230769231,Congressional Districts 
+TN4,328.6494925839,Congressional Districts 
+AL3,334.9196906603,Congressional Districts 
+TN3,337.9446640316,Congressional Districts 
+VA7,339.0804597701,Congressional Districts 
+GA12,345.0106157113,Congressional Districts 
+VA6,345.0292397661,Congressional Districts 
+MN1,347.3193473193,Congressional Districts 
+TX25,353.3333333333,Congressional Districts 
+VA9,358.184765,Congressional Districts 
+NC6,360.5263157895,Congressional Districts 
+NH2,361.2403101,Congressional Districts 
+AL1,362.7218934911,Congressional Districts 
+NC2,362.9242819843,Congressional Districts 
+TX15,363.9514731369,Congressional Districts 
+FL13,365.988909427,Congressional Districts 
+TX11,368.288590604,Congressional Districts 
+TN6,369.8412698413,Congressional Districts 
+TX7,370.709382151,Congressional Districts 
+MA5,376.0217983651,Congressional Districts 
+CA13,377.9069767442,Congressional Districts 
+GA5,378.8105947026,Congressional Districts 
+FL1,378.8748564868,Congressional Districts 
+VA10,381.6964285714,Congressional Districts 
+OR2,382.9401089,Congressional Districts 
+CA14,385.5421686747,Congressional Districts 
+AL2,396.1840628507,Congressional Districts 
+DC0,396.5517241379,Congressional Districts 
+WI1,396.8253968254,Congressional Districts 
+MA8,401.7278617711,Congressional Districts 
+MD3,404.7619048,Congressional Districts 
+TX17,405.9139785,Congressional Districts 
+GA4,408.7144400432,Congressional Districts 
+IN5,414.381023,Congressional Districts 
+KS2,415.1150054765,Congressional Districts 
+TX8,422.0779220779,Congressional Districts 
+AL6,425.6694367498,Congressional Districts 
+TX5,428.2945736434,Congressional Districts 
+KS1,430.6759098787,Congressional Districts 
+TX29,430.6930693069,Congressional Districts 
+VA5,434.4827586207,Congressional Districts 
+NC9,441.6243654822,Congressional Districts 
+NC13,449.4773519164,Congressional Districts 
+CO6,462.9186602871,Congressional Districts 
+CT1,466.4634146341,Congressional Districts 
+MN8,467.35395189,Congressional Districts 
+NC5,478.5992217899,Congressional Districts 
+TX13,482.7586206897,Congressional Districts 
+ME1,483.6193447738,Congressional Districts 
+IL7,484.2105263158,Congressional Districts 
+PA6,487.94489093,Congressional Districts 
+SC1,496.2406015038,Congressional Districts 
+AL4,500,Congressional Districts 
+GA8,510.4895104895,Congressional Districts 
+WI8,514.2857142857,Congressional Districts 
+PA3,520.2143205066,Congressional Districts 
+MD7,525,Congressional Districts 
+MD4,528.5714285714,Congressional Districts 
+MA4,532.00883,Congressional Districts 
+PA9,532.7771156138,Congressional Districts 
+CA17,536.6666666667,Congressional Districts 
+MN2,542.3728813559,Congressional Districts 
+CA18,546.2184874,Congressional Districts 
+GA1,556.903524,Congressional Districts 
+TN7,560.5504587156,Congressional Districts 
+MS4,562.9290617849,Congressional Districts 
+TX34,566.2878787879,Congressional Districts 
+NC7,584.7665847666,Congressional Districts 
+PA5,591.2148793035,Congressional Districts 
+CA52,598.6622074,Congressional Districts 
+PA4,611.9536128457,Congressional Districts 
+IN2,614.3617021277,Congressional Districts 
+WI6,621.00456621,Congressional Districts 
+MS1,629.7948260482,Congressional Districts 
+AL7,631.6614420063,Congressional Districts 
+MS3,632.299270073,Congressional Districts 
+MN7,641.0256410256,Congressional Districts 
+IN9,641.7445482866,Congressional Districts 
+KY3,641.7910447761,Congressional Districts 
+VA1,643.0769230769,Congressional Districts 
+AZ8,647.0588235294,Congressional Districts 
+TN8,650.9635974304,Congressional Districts 
+ME2,653.9473684211,Congressional Districts 
+CA37,666.6666666667,Congressional Districts 
+VA11,673.4693877551,Congressional Districts 
+VA4,676.056338,Congressional Districts 
+WI2,681.8181818182,Congressional Districts 
+CT3,683.1683168317,Congressional Districts 
+MD2,685.618729097,Congressional Districts 
+NC10,686.8686868687,Congressional Districts 
+AZ7,700,Congressional Districts 
+NC3,701.2711864407,Congressional Districts 
+PA1,710.0840336134,Congressional Districts 
+CA15,713.3757961783,Congressional Districts 
+PA11,716.7182662539,Congressional Districts 
+CT5,721.0031347962,Congressional Districts 
+IN4,738.0073800738,Congressional Districts 
+KY4,748.1481481481,Congressional Districts 
+TX14,749.5256166983,Congressional Districts 
+IL4,750,Congressional Districts 
+HI2,752.9107373868,Congressional Districts 
+CA5,753.5816618911,Congressional Districts 
+PA18,763.6363636,Congressional Districts 
+WI5,767.1232876712,Congressional Districts 
+IN1,772.7272727273,Congressional Districts 
+PA14,775.0556792873,Congressional Districts 
+IN3,776.8924302789,Congressional Districts 
+CA11,778.9473684211,Congressional Districts 
+GA2,786.8852459016,Congressional Districts 
+AZ3,789.4736842105,Congressional Districts 
+AR3,801.4842300557,Congressional Districts 
+CA19,801.8867924528,Congressional Districts 
+MD6,807.8994614004,Congressional Districts 
+TX27,807.9268292683,Congressional Districts 
+MD8,808.1761006289,Congressional Districts 
+NC11,811.5942028986,Congressional Districts 
+PA16,817.1846435101,Congressional Districts 
+CT2,831.7757009346,Congressional Districts 
+CA21,833.3333333333,Congressional Districts 
+PA12,834.5195729537,Congressional Districts 
+NM3,843.5207824,Congressional Districts 
+VA8,844.8275862069,Congressional Districts 
+IL5,847.8260869565,Congressional Districts 
+NC8,855.721393,Congressional Districts 
+TX36,877.106741573,Congressional Districts 
+CA43,879.5180722892,Congressional Districts 
+CA53,882.9787234043,Congressional Districts 
+MA2,904.1095890411,Congressional Districts 
+CA31,925.2336448598,Congressional Districts 
+AZ1,933.8842975,Congressional Districts 
+WI3,953.781512605,Congressional Districts 
+TX4,958.5987261147,Congressional Districts 
+VA3,970.1492537313,Congressional Districts 
+PA10,993.5294117647,Congressional Districts 
+MS2,1002.1321961621,Congressional Districts 
+CA44,1004.424779,Congressional Districts 
+TX1,1005.7142857143,Congressional Districts 
+MD1,1028.2447881641,Congressional Districts 
+CT4,1043.7158469945,Congressional Districts 
+DE00,1051.282051,Congressional Districts 
+DE0,1051.2820512821,Congressional Districts 
+NJ3,1057.2419774501,Congressional Districts 
+WY0,1066.485013624,Congressional Districts 
+WI7,1067.1378091873,Congressional Districts 
+SC5,1080.5369127517,Congressional Districts 
+CA6,1082.608696,Congressional Districts 
+CA50,1100.4016064257,Congressional Districts 
+NJ4,1103.1652989449,Congressional Districts 
+NJ5,1119.1335740072,Congressional Districts 
+PA7,1119.7183098592,Congressional Districts 
+CA16,1122.1374045802,Congressional Districts 
+IN8,1154.668567,Congressional Districts 
+IL9,1157.142857,Congressional Districts 
+MT0,1158.3054626533,Congressional Districts 
+OH3,1159.0909090909,Congressional Districts 
+NY10,1160,Congressional Districts 
+MT00,1167.36754,Congressional Districts 
+CA49,1168.2242990654,Congressional Districts 
+NE2,1178.5714285714,Congressional Districts 
+NJ12,1181.5336463224,Congressional Districts 
+PA17,1185.2654387866,Congressional Districts 
+CA25,1195.6521739131,Congressional Districts 
+CA29,1203.571429,Congressional Districts 
+MN6,1212.5,Congressional Districts 
+RI1,1217.5572519084,Congressional Districts 
+MO1,1219.3732193732,Congressional Districts 
+CA26,1220.0488997555,Congressional Districts 
+CA38,1246.2462462463,Congressional Districts 
+IL3,1247.7064220184,Congressional Districts 
+AZ4,1253.9682539683,Congressional Districts 
+CA33,1258.6206896552,Congressional Districts 
+NJ7,1258.785942492,Congressional Districts 
+KY2,1282.626766,Congressional Districts 
+IN6,1289.6218825422,Congressional Districts 
+PA15,1294.2289498581,Congressional Districts 
+CA22,1301.8867924528,Congressional Districts 
+CA23,1311.320754717,Congressional Districts 
+MD5,1319.5266272189,Congressional Districts 
+SC6,1320,Congressional Districts 
+CO7,1338.2550335571,Congressional Districts 
+NJ11,1339.7190293742,Congressional Districts 
+MO5,1344.9131513648,Congressional Districts 
+CA36,1350.21097,Congressional Districts 
+CA27,1362.0689655173,Congressional Districts 
+SC3,1368.613139,Congressional Districts 
+KY6,1370.2623906706,Congressional Districts 
+VA2,1376.3440860215,Congressional Districts 
+CA30,1377.7777777778,Congressional Districts 
+CA24,1404.181184669,Congressional Districts 
+NE3,1421.2076583211,Congressional Districts 
+RI2,1425,Congressional Districts 
+SC2,1428.5714285714,Congressional Districts 
+NY25,1439.6551724138,Congressional Districts 
+LA1,1442.050278,Congressional Districts 
+NJ2,1461.4003590664,Congressional Districts 
+CA42,1472.6368159204,Congressional Districts 
+CA41,1475.935828877,Congressional Districts 
+NJ10,1496.7320261438,Congressional Districts 
+CA9,1511.749347,Congressional Districts 
+CA9,1511.749347,Congressional Districts 
+CA20,1531.7919075145,Congressional Districts 
+WV2,1535.2633199877,Congressional Districts 
+NE1,1546.485260771,Congressional Districts 
+CA32,1547.6923076923,Congressional Districts 
+ID1,1565.664556962,Congressional Districts 
+CA40,1570.6214689266,Congressional Districts 
+CA34,1580,Congressional Districts 
+IL8,1580.9128630705,Congressional Districts 
+PA8,1602.9579067122,Congressional Districts 
+IL10,1604.347826087,Congressional Districts 
+OH11,1609.375,Congressional Districts 
+CA45,1610.6194690266,Congressional Districts 
+SC7,1617.3913043478,Congressional Districts 
+CO2,1623.0598669623,Congressional Districts 
+ID2,1626.6666666667,Congressional Districts 
+CO5,1627.4509803922,Congressional Districts 
+CA2,1627.7602523659,Congressional Districts 
+LA2,1629.4458229942,Congressional Districts 
+NJ1,1653.3333333333,Congressional Districts 
+WV1,1662.635425,Congressional Districts 
+MO2,1666.2011173184,Congressional Districts 
+NJ8,1670.6586826347,Congressional Districts 
+WI4,1692.3076923077,Congressional Districts 
+NJ9,1697.0172684458,Congressional Districts 
+KY1,1703.1930333817,Congressional Districts 
+HI1,1704.0816326531,Congressional Districts 
+CO4,1709.9669343411,Congressional Districts 
+CA35,1712.582781457,Congressional Districts 
+CO1,1716.814159,Congressional Districts 
+CA12,1733.3333333333,Congressional Districts 
+KY5,1768.1737588653,Congressional Districts 
+IL6,1782.6086956522,Congressional Districts 
+CA28,1787.2340425532,Congressional Districts 
+CA8,1808.3832335329,Congressional Districts 
+AR1,1812.6022913257,Congressional Districts 
+NJ6,1813.8385502471,Congressional Districts 
+NJ6,1817.880795,Congressional Districts 
+IL2,1822.981366,Congressional Districts 
+NY3,1841.1764705882,Congressional Districts 
+CA10,1853.6585365854,Congressional Districts 
+OH10,1961.1650485437,Congressional Districts 
+LA3,1983.3574529667,Congressional Districts 
+MI9,1986.013986014,Congressional Districts 
+NY6,2000,Congressional Districts 
+IL1,2039.370079,Congressional Districts 
+AR4,2048.4848484849,Congressional Districts 
+IL11,2069.1056910569,Congressional Districts 
+IL14,2180.6930693069,Congressional Districts 
+AZ2,2189.1891891892,Congressional Districts 
+CA48,2217.9487179487,Congressional Districts 
+VT00,2221.556886,Congressional Districts 
+AR2,2222.7873855544,Congressional Districts 
+LA6,2280.739466896,Congressional Districts 
+CA51,2303.664921466,Congressional Districts 
+NY11,2305.5555555556,Congressional Districts 
+CA3,2329.0043290043,Congressional Districts 
+CA47,2355.5555555556,Congressional Districts 
+NY17,2400.8097165992,Congressional Districts 
+OH9,2419.5804195804,Congressional Districts 
+NY22,2456.400742115,Congressional Districts 
+GU0,2487.3949579832,Congressional Districts 
+CO3,2569.6784073507,Congressional Districts 
+NY24,2571.129707113,Congressional Districts 
+NY26,2575,Congressional Districts 
+WV3,2577.3294908742,Congressional Districts 
+NY1,2605.8201058201,Congressional Districts 
+OH8,2608.1871345029,Congressional Districts 
+MO7,2666.064982,Congressional Districts 
+MO6,2673.4947237741,Congressional Districts 
+NY18,2703.125,Congressional Districts 
+NY27,2779.7513321492,Congressional Districts 
+NY20,2837.628866,Congressional Districts 
+NY23,2844.4108761329,Congressional Districts 
+OH2,2864.705882353,Congressional Districts 
+NY7,2913.0434782609,Congressional Districts 
+OH7,2949.1978609626,Congressional Districts 
+IA4,3001.5527950311,Congressional Districts 
+NY2,3075.8928571429,Congressional Districts 
+NY19,3113.8686131387,Congressional Districts 
+OH1,3147.2868217054,Congressional Districts 
+OK4,3169.1176470588,Congressional Districts 
+LA5,3264.33750824,Congressional Districts 
+MI8,3271.375464684,Congressional Districts 
+CA46,3296.9432314411,Congressional Districts 
+OH6,3318.38565,Congressional Districts 
+NY21,3336.7741935484,Congressional Districts 
+CA39,3367.3469387755,Congressional Districts 
+NY4,3404.0404040404,Congressional Districts 
+MI11,3409.7222222222,Congressional Districts 
+OH4,3426.1904761905,Congressional Districts 
+NY14,3507.4626865672,Congressional Districts 
+NY12,3563.3802816901,Congressional Districts 
+MO4,3577.4647887324,Congressional Districts 
+LA4,3615.7283288651,Congressional Districts 
+OH5,3728.358209,Congressional Districts 
+CA4,3731.1827956989,Congressional Districts 
+OH12,3754.2857142857,Congressional Districts 
+NY16,3892.156863,Congressional Districts 
+IL12,3903.2738095238,Congressional Districts 
+MO3,3915.9393661001,Congressional Districts 
+MO8,3938.0587484036,Congressional Districts 
+OK3,4017.3010380623,Congressional Districts 
+IA3,4021.9298245614,Congressional Districts 
+IL16,4047.756874,Congressional Districts 
+OH14,4102.7568922306,Congressional Districts 
+CA1,4133.8582677165,Congressional Districts 
+IL13,4233.8709677419,Congressional Districts 
+CA7,4288.8888888889,Congressional Districts 
+OH16,4528.384279476,Congressional Districts 
+OK5,4619.0476190476,Congressional Districts 
+MI2,4675.3731343284,Congressional Districts 
+NY5,4705.8823529412,Congressional Districts 
+NY8,4826.0869565217,Congressional Districts 
+OH15,4872.3404255319,Congressional Districts 
+IL15,4899.491094,Congressional Districts 
+IL17,5032.154340836,Congressional Districts 
+IL18,5240.7975460123,Congressional Districts 
+IA1,5401.9370460049,Congressional Districts 
+OK2,5535.326087,Congressional Districts 
+OH13,5640.8839779006,Congressional Districts 
+MI10,5793.8718662953,Congressional Districts 
+OK1,5831.8584070797,Congressional Districts 
+MI14,5885.2459016394,Congressional Districts 
+MI3,6014.6341463415,Congressional Districts 
+MI12,6146.853147,Congressional Districts 
+MP0,6371.4285714286,Congressional Districts 
+WA1,6464.4194756554,Congressional Districts 
+MI5,6576.5765765766,Congressional Districts 
+MI4,6608.5626911315,Congressional Districts 
+NY15,6675,Congressional Districts 
+MI1,6755.4744525548,Congressional Districts 
+WA10,6759.0361445783,Congressional Districts 
+WA2,6882.703777336,Congressional Districts 
+VI0,6938.7755102041,Congressional Districts 
+MI6,7115.254237,Congressional Districts 
+WA4,7872.9096989967,Congressional Districts 
+WA6,7873.1707317073,Congressional Districts 
+WA7,7875.5364806867,Congressional Districts 
+WA8,8222.2222222222,Congressional Districts 
+IA2,8260.663507,Congressional Districts 
+MI7,8652.597403,Congressional Districts 
+PR0,8976.897689769,Congressional Districts 
+WA3,9299.8477929985,Congressional Districts 
+MI13,9862.5,Congressional Districts 
+WA5,10294.11765,Congressional Districts 
+WA9,10785.046728972,Congressional Districts 
+NY13,11833.3333333333,Congressional Districts 
+NY9,26500,Congressional Districts 
+AS0,31181.8181818182,Congressional Districts 
+NV,36.2259516987,States
+UT,80.8434096133,States
+OR,175.4729289,States
+FL,182.460769992,States
+ND,188.1993896,States
+KS,192.1139482369,States
+GA,248.772640859,States
+NH,316.275764037,States
+TX,320.9009952855,States
+TN,352.378859466,States
+DC,396.5517241379,States
+AL,401.1627907,States
+MA,410.2797362,States
+NM,440.2323448487,States
+VA,452.8993317525,States
+NC,500.2408864622,States
+MN,527.6752767528,States
+ME,542.8571428571,States
+CT,625.890736342,States
+MS,648.5069523592,States
+SC,688.4587289993,States
+IN,733.6803482,States
+AZ,753.75,States
+PA,782.5350377329,States
+MD,797.4475093,States
+WI,862.3655913979,States
+DE,1051.282051,States
+DE,1051.2820512821,States
+WY,1066.485013624,States
+MT,1158.3054626533,States
+NJ,1198.3364140481,States
+HI,1248.4186313974,States
+SD,1274.268105,States
+RI,1292.7689594356,States
+KY,1330.7767226686,States
+NE,1428.6905754796,States
+ID,1555.879494655,States
+CA,1576.7477203648,States
+CO,1692.7937915743,States
+AR,1711.4641477029,States
+LA,1911.4336091143,States
+WV,1946.582424,States
+VT,2221.556886,States
+GU,2487.3949579832,States
+NY,2713.157895,States
+IL,2838.9600310439,States
+MO,3006.4778826578,States
+OH,3579.0747713825,States
+IA,4028.2805429864,States
+OK,4430.740038,States
+MI,5789.5061728395,States
+MP,6371.4285714286,States
+IA,6661.764706,States
+VI,6938.7755102041,States
+WA,8165.6905807711,States
+AK,8409.621993,States
+PR,8976.897689769,States
+AS,31181.8181818182,States
