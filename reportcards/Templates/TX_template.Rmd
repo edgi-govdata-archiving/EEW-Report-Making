@@ -56,14 +56,15 @@ CWAper1000 <- violationsper1000_CWA
 
 #each time this section is run, change "here" to specify the subfolder for the district or state 
 #Also, the way it is set up, you're going to need to cntrl f to change the district and date for the files
-filenames = list.files(here("CD_Dirs/TX"), pattern = ".csv")
+filenames = list.files(here(paste0("CD_Dirs/",cd_state)), pattern = ".csv")
 file_count = length(filenames)
 for (i in filenames){  
   name <- gsub("^([^_]*_[^_]*_[^_]*_[^-]*)-.*$","\\1", i)
-  assign(name, read.csv(here("CD_Dirs/TX", i)))
+  assign(name, read.csv(here(paste0("CD_Dirs/",cd_state), i)))
 }
 
-activefacilities <- `active-facilities_All_pg3_TX`
+activefacilities <- get(paste0('active-facilities_All_pg3_', cd_state))
+
 
 #set up a theme default to reduce code block later 
 theme_meg <- function () { 
@@ -86,6 +87,11 @@ sen2_name <- senators[2, "name"]
 sen1_since <- senators[1, "since_date"]
 sen2_since <- senators[2, "since_date"]
 
+#make all the html tags needed for images 
+#map
+map <- paste0("../../State_maps/", cd_state, "_map.png")
+map_tag <- tags$img(src = map,alt="Snow",style="width:100%;")
+
 ```
 
   <div class="title"><span style="padding-left: 150px">
@@ -94,10 +100,10 @@ sen2_since <- senators[2, "since_date"]
  <hr style="height:3px;border-width:0; margin-left:15px; margin-right:15px;color: #b9b9b9;background-color: #b9b9b9; margin-top: 0em; margin-bottom: 0em">
 ##### Texas; seats held by `r sen1_name` since `r sen1_since` and `r sen2_name` since `r sen2_since`
  <div class="container">
-  <img src="../State_maps/TX_map.png" alt="Snow" style="width:100%;">
+  `r map_tag `
   </div>
-<a href="https://www.environmentalenforcementwatch.org/"><img src="../logosandimages/eew_logo.png" style="float: left; width: 9%; margin-left: 30%"></a>
-<a href="https://envirodatagov.org/"><img src="../logosandimages/edgi_logo.png" style="float: right; width: 15%; margin-right: 30%" ></a>
+<a href="https://www.environmentalenforcementwatch.org/"><img src="../../logosandimages/eew_logo.png" style="float: left; width: 9%; margin-left: 30%"></a>
+<a href="https://envirodatagov.org/"><img src="../../logosandimages/edgi_logo.png" style="float: right; width: 15%; margin-right: 30%" ></a>
 
 \pagebreak
 
@@ -114,7 +120,7 @@ The Environmental Protection Agency (EPA) is charged by Congress to enforce laws
 
 ## What is a "regulated facility"?
 
-<a ><img src="../logosandimages/facilities2.png" style="float: center; width: 70%; margin-left: 15%" ></a>
+<a ><img src="../../logosandimages/facilities2.png" style="float: center; width: 70%; margin-left: 15%" ></a>
 
 <br />
 
@@ -130,7 +136,7 @@ A regulated facility in this report is a facility that reports air or water emis
 ```{r echo=FALSE}
 
 ##getting %difference CWA violations
-CWAviolations <- violations_CWA_pg6_TX
+CWAviolations <- get(paste0('violations_CWA_pg6_',cd_state))
 names(CWAviolations)[2] <- "Count"
 names(CWAviolations)[1] <- "YEAR"
 CWAviolations <- CWAviolations[-c(20),]
@@ -152,7 +158,7 @@ vCWAchange$Positive <- abs(vCWAchange$PercentDifference)
 vCWAchange$Value <- ifelse(vCWAchange$PercentDifference>=0, "increase", "decrease")
 
 #enforcement % difference
-enforcement <- enforcements_All_pg3_TX
+enforcement <- get(paste0('enforcements_All_pg3_',cd_state))
 names(enforcement)[1] <- "Date"
 enforcement <- enforcement[-c(20),]
 enforcement$Amount <- round(enforcement$Amount,2)
@@ -192,8 +198,8 @@ actionchange$Value <- ifelse(actionchange$PercentDifference>=0, "increase", "dec
 CWAper1000$Num.per.1000 <- as.numeric(round(CWAper1000$Num.per.1000,0))
 CWAper10002 <- CWAper1000
 CWAper10002$Test <- as.numeric(0)
-CWAper10002$Highlight <- ifelse(CWAper10002$CD.State=="TX", "TX", "Other")
-CWAper1000$Highlight <- ifelse(CWAper1000$CD.State=="TX", "TX", "Other")
+CWAper10002$Highlight <- ifelse(CWAper10002$CD.State==cd_state, paste0(cd_state), "Other")
+CWAper1000$Highlight <- ifelse(CWAper1000$CD.State==cd_state, paste0(cd_state), "Other")
 CWAper1000$Per100 <- as.numeric(CWAper1000$Num.per.1000/10)
 
 
@@ -205,7 +211,7 @@ outliers <- CWAper1000[CWAper1000$Num.per.1000 >= 8000.,]
 # CWAper100 <- CWAper100[-c(38,52,29,15,54,8),]
 # CWAper100 <- CWAper100[CWAper100$Num.per.100 < 1200.,]
 
-TX_dot <- CWAper1000[which(CWAper1000$CD.State=="TX"), ]
+cd_state_dot <- CWAper1000[which(CWAper1000$CD.State==cd_state), ]
 
 dotplot <-ggplot(CWAper100, aes(x=Region, y=Per100, fill=Highlight))+
   geom_dotplot(binaxis='y', stackdir='center', stackratio=1.5, binwidth=15,
@@ -222,7 +228,7 @@ dotplot <-ggplot(CWAper100, aes(x=Region, y=Per100, fill=Highlight))+
   theme(axis.line.x=element_blank(), axis.title.x=element_blank(),
         legend.title = element_blank(), axis.text.x=element_text(size=10, hjust=.6), legend.position = c(0.1,.8), axis.ticks.x=element_blank())+scale_x_discrete(labels=c("Congressional Districts","States"))
 
-ggsave("dotplot_TX.png", dotplot, path=here("CD_Dirs/TX"), scale = 2, width=8, height=5, units=c("cm"))
+ggsave("dotplot.png", dotplot, path=here(paste0("CD_Dirs/", cd_state)), scale = 2, width=8, height=5, units=c("cm"))
 
 cd_outliers <- ''
 state_outliers <- ''
@@ -256,15 +262,17 @@ if ( nchar( trim( state_outliers ) < 2 )) {
   state_outliers <- paste( 'States: ', state_outliers )
 }
 
+dotplot <- paste0("../../CD_Dirs/", cd_state, "/dotplot.png")
+dotplot_tag <- tags$img(src = dotplot,style="float: left; width: 100%; height: 60%; margin-right: 5%")
 ```
  
-<a ><img src="../CD_Dirs/TX/dotplot_TX.png" style="float: left; width: 100%; height: 60%; margin-right: 5%" ></a>
+<a >`r dotplot_tag`</a>
 
 *This is an average, it does not mean that every facility has a violation. Some facilities may have many more than 1 or zero.
 <br />
 <br />
 
-<h3>In TX, there were <span style="color:#569b5e">`r TX_dot[1,5]`</span> Clean Water Act violations per 100 regulated facilities in 2019.</h3>
+<h3>In `r paste0(cd_state)` there were <span style="color:#569b5e">`r cd_state_dot[1,5]`</span> Clean Water Act violations per 100 regulated facilities in 2019.</h3>
 
 <h2> Outliers (not shown):  Districts and states with more than 800 violations per 100 installations.</h2>
 
@@ -278,51 +286,52 @@ if ( nchar( trim( state_outliers ) < 2 )) {
 <h4>Report Generated on 10.2.2020<span style="padding-left:400px">Page 3</span></h4>
 ```{r echo=FALSE}
 #CAA
-
+#megan 6/18/21 - I don't think we're actually using any of this data right now, so i'm going to block it out
 ##first let's fix up the data
-#ok so We'll put the % in the title for the state, and try to figure out the same for TX
-CAArecurring <- `recurring-violations_All_pg3_TX`[-c(2,3,5,6),]
-CAArecurring <- CAArecurring %>%
-  select(State,Facilities, Percent)
-names(CAArecurring)[1] <- "Region"
-CAArecurring[1,1] <- as.character("Rest of State")
-CAArecurring[2,1] <- as.character("TX")
-CAArecurring$Region2 <- as.character("All of OR")
-CAArecurring[2,4] <- as.character("TX")
-CAArecurring$RecurringViolators <- (as.numeric(CAArecurring[1,2]-CAArecurring[2,2]))
-CAArecurring[2,5] <- as.numeric(CAArecurring[2,2])
-CAArecurring$Proportional <- (as.numeric((100/(CAArecurring[1,2]))*CAArecurring[1,5]))
-CAArecurring[2,6] <- as.numeric(100-CAArecurring[1,6])
-CAArecurring[3] <-round(CAArecurring[3],2)
+#ok so We'll put the % in the title for the state, and try to figure out the same for the cd_state
+#CAArecurring <- `recurring-violations_All_pg3_TX`[-c(2,3,5,6),]
+#CAArecurring <- `recurring-violations_All_pg3_TX`[-c(2,3,5,6),]
+#CAArecurring <- CAArecurring %>%
+#  select(State,Facilities, Percent)
+#names(CAArecurring)[1] <- "Region"
+#CAArecurring[1,1] <- as.character("Rest of State")
+#CAArecurring[2,1] <- as.character("TX")
+#CAArecurring$Region2 <- as.character("All of OR")
+#CAArecurring[2,4] <- as.character("TX")
+#CAArecurring$RecurringViolators <- (as.numeric(CAArecurring[1,2]-CAArecurring[2,2]))
+#CAArecurring[2,5] <- as.numeric(CAArecurring[2,2])
+#CAArecurring$Proportional <- (as.numeric((100/(CAArecurring[1,2]))*CAArecurring[1,5]))
+#CAArecurring[2,6] <- as.numeric(100-CAArecurring[1,6])
+#CAArecurring[3] <-round(CAArecurring[3],2)
 
 #CWA
 
 ##first let's fix up the data
 #ok so We'll put the % in the title for the state, and try to figure out the same for TX
-CWArecurring <- `recurring-violations_All_pg3_TX`[-c(1,3),]
-CWArecurring <- CWArecurring %>%
-  select(State,Facilities, Percent)
-names(CWArecurring)[1] <- "Region"
-CWArecurring[3] <-round(CWArecurring[3],0)
+#CWArecurring <- `recurring-violations_All_pg3_TX`[-c(1,3),]
+#CWArecurring <- CWArecurring %>%
+#  select(State,Facilities, Percent)
+#names(CWArecurring)[1] <- "Region"
+#CWArecurring[3] <-round(CWArecurring[3],0)
 
 
 #RCRA
 
 ##first let's fix up the data
 #ok so We'll put the % in the title for the state, and try to figure out the same for TX
-RCRArecurring <- `recurring-violations_All_pg3_TX`[-c(1,2,4,5),]
-RCRArecurring <- RCRArecurring %>%
-  select(State,Facilities, Percent)
-names(RCRArecurring)[1] <- "Region"
-RCRArecurring[1,1] <- as.character("Rest of State")
-RCRArecurring[2,1] <- as.character("TX")
-RCRArecurring$Region2 <- as.character("All of OR")
-RCRArecurring[2,4] <- as.character("TX")
-RCRArecurring$RecurringViolators <- (as.numeric(RCRArecurring[1,2]-RCRArecurring[2,2]))
-RCRArecurring[2,5] <- as.numeric(RCRArecurring[2,2])
-RCRArecurring$Proportional <- (as.numeric((100/(RCRArecurring[1,2]))*RCRArecurring[1,5]))
-RCRArecurring[2,6] <- as.numeric(100-RCRArecurring[1,6])
-RCRArecurring[3] <-round(RCRArecurring[3],2)
+#RCRArecurring <- `recurring-violations_All_pg3_TX`[-c(1,2,4,5),]
+#RCRArecurring <- RCRArecurring %>%
+#  select(State,Facilities, Percent)
+#names(RCRArecurring)[1] <- "Region"
+#RCRArecurring[1,1] <- as.character("Rest of State")
+#RCRArecurring[2,1] <- as.character("TX")
+#RCRArecurring$Region2 <- as.character("All of OR")
+#RCRArecurring[2,4] <- as.character("TX")
+#RCRArecurring$RecurringViolators <- (as.numeric(RCRArecurring[1,2]-RCRArecurring[2,2]))
+#RCRArecurring[2,5] <- as.numeric(RCRArecurring[2,2])
+#RCRArecurring$Proportional <- (as.numeric((100/(RCRArecurring[1,2]))*RCRArecurring[1,5]))
+#RCRArecurring[2,6] <- as.numeric(100-RCRArecurring[1,6])
+#RCRArecurring[3] <-round(RCRArecurring[3],2)
 ```
 
 ```{r echo=FALSE}
@@ -331,7 +340,7 @@ RCRArecurring[3] <-round(RCRArecurring[3],2)
 ##So, we're going to do the first 3 years of Obama and Trump so average
 #[9:11,2] Obama
 # [17:19,2] Trump
-effluentviolations <- `violations_CWA_pg3_TX`
+effluentviolations <- get(paste0('violations_CWA_pg3_', cd_state))
 effluentviolations <- effluentviolations[-c(20:21),]
 effluentchange <- data.frame("Obama Average" =mean(effluentviolations[9:11,2]),
                              "Trump Average" =mean(effluentviolations[17:19,2]))
@@ -362,7 +371,7 @@ effluentgraph <- ggplot(effluentviolations, mapping=aes(x=factor(Year),
 ##So, we're going to do the first 3 years of Obama and Trump so average
 #[9:11,2] Obama
 # [17:19,2] Trump
-inspections <- `inspections_All_pg3_TX`
+inspections <- get(paste0('inspections_All_pg3_', cd_state))
 names(inspections)[1] <- "Date"
 inspections <- inspections[-c(20),]
 inspectionchange <- data.frame("Obama Average" =mean(inspections[9:11,2]),
@@ -397,7 +406,7 @@ inspectiongraph <- ggplot(inspections, mapping=aes(x=factor(Date),
 ##So, we're going to do the first 3 years of Obama and Trump so average
 #[9:11,2] Obama
 # [17:19,2] Trump
-enforcement <- `enforcements_All_pg3_TX`
+enforcement <- get(paste0('enforcements_All_pg3_', cd_state))
 names(enforcement)[1] <- "Date"
 enforcement <- enforcement[-c(20),]
 enforcement$Amount <- round(enforcement$Amount,0)
@@ -482,11 +491,12 @@ The reliability of data in figures throughout this report is indicated by the fi
 #comparing inspections
 
 #let's combine the inspections data at national, state, CD level 
+inspections_cd_state <- get(paste0('inspectionsper1000_All_pg4_', cd_state))
 names(USAinspectionsper1000_All)[2] <- "Inspectionsper1000"
 USAinspectionsper1000_All$Region <- as.factor("National")
-names(`inspectionsper1000_All_pg4_TX`)[2] <- "Inspectionsper1000"
-`inspectionsper1000_All_pg4_TX`$Region <- as.factor("State")
-inspectionsper1000 <- rbind(USAinspectionsper1000_All, `inspectionsper1000_All_pg4_TX`)
+names(inspections_cd_state)[2] <- "Inspectionsper1000"
+`inspections_cd_state`$Region <- as.factor("State")
+inspectionsper1000 <- rbind(USAinspectionsper1000_All, `inspections_cd_state`)
 inspectionsper1000$Inspectionsper1000 <- as.numeric(inspectionsper1000$Inspectionsper1000)
 inspectionsper1000[2] <-round(inspectionsper1000[2],0) 
 
@@ -504,11 +514,12 @@ inspect1000bar <- ggplot(inspectionsper1000, aes(fill=Region, y=Inspectionsper10
 
 #comparing violations
 #let's combine the violations data at national, state, CD level 
+violations_cd_state <- get(paste0('violationsper1000_All_pg4_', cd_state))
 names(USAviolationsper1000_All)[2] <- "violationsper1000"
 USAviolationsper1000_All$Region <- as.factor("National")
-names(`violationsper1000_All_pg4_TX`)[2] <- "violationsper1000"
-`violationsper1000_All_pg4_TX`$Region <- as.factor("State")
-violationsper1000 <- rbind(USAviolationsper1000_All, `violationsper1000_All_pg4_TX`)
+names(`violations_cd_state`)[2] <- "violationsper1000"
+`violations_cd_state`$Region <- as.factor("State")
+violationsper1000 <- rbind(USAviolationsper1000_All, `violations_cd_state`)
 violationsper1000$violationsper1000 <- as.numeric(violationsper1000$violationsper1000)
 violationsper1000[2] <-round(violationsper1000[2],0)
 
@@ -543,7 +554,7 @@ The reliability of data in figures throughout this report is indicated by the fi
 <font size="2">These figures show the ten facilities in this state with the worst history of environmental compliance based on their number of noncompliant quarters in the past 3 years (not necessarily consecutive).</font>
 ```{r, fig.height = 7, fig.width = 5, fig.align = "left"}
 #call in data and clean up 
-CAAbadactors <- `noncomp_CAA_pg6_TX`
+CAAbadactors <- get(paste0('noncomp_CAA_pg6_', cd_state))
 CAAbadactors <-CAAbadactors[!(CAAbadactors$noncomp_count==0),]
 CAAbadactors <- CAAbadactors[-c(11:20),]
 CAAbadactors$Facility <- CAAbadactors$FAC_NAME
@@ -566,7 +577,7 @@ CAAfacilities <- CAAbadactors %>%
 
 
 #call in data and clean up 
-CWAbadactors <- `noncomp_CWA_pg6_TX`
+CWAbadactors <- get(paste0('noncomp_CWA_pg6_', cd_state))
 CWAbadactors <-CWAbadactors[!(CWAbadactors$noncomp_count==0),]
 CWAbadactors <- CWAbadactors[-c(11:20),]
 CWAbadactors$Facility <- CWAbadactors$FAC_NAME
@@ -592,7 +603,7 @@ CWAfacilities <- CWAbadactors %>%
 
 
 #call in data and clean up 
-RCRAbadactors <- `noncomp_RCRA_pg7_TX`
+RCRAbadactors <- get(paste0('noncomp_RCRA_pg7_', cd_state))
 RCRAbadactors <-RCRAbadactors[!(RCRAbadactors$noncomp_count==0),]
 RCRAbadactors <- RCRAbadactors[-c(11:20),]
 RCRAbadactors$Facility <- RCRAbadactors$FAC_NAME
@@ -617,12 +628,23 @@ RCRAfacilities <- RCRAbadactors %>%
 
 #CAAfacilities / CWAfacilities / RCRAfacilities 
 
-ggsave("CAAfacilities.png", CAAfacilities, path=here("CD_Dirs/TX"), scale = 3, width=7, height=4, units=c("cm"))
-ggsave("CWAfacilities.png", CWAfacilities, path=here("CD_Dirs/TX"), scale = 3, width=7, height=4, units=c("cm"))
-ggsave("RCRAfacilities.png", RCRAfacilities, path=here("CD_Dirs/TX"), scale = 3, width=7, height=4, units=c("cm"))
+ggsave("CAAfacilities.png", CAAfacilities, path=here(paste0("CD_Dirs/", cd_state)), scale = 3, width=7, height=4, units=c("cm"))
+ggsave("CWAfacilities.png", CWAfacilities, path=here(paste0("CD_Dirs/", cd_state)), scale = 3, width=7, height=4, units=c("cm"))
+ggsave("RCRAfacilities.png", RCRAfacilities, path=here(paste0("CD_Dirs/", cd_state)), scale = 3, width=7, height=4, units=c("cm"))
+
+#make html tags for these images 
+CAAfacilities <- paste0("../../CD_Dirs/", cd_state, "/CAAfacilities.png")
+CAA_tag <- tags$img(src = CAAfacilities,style="float: left; width: 65%; height: 60%; margin-right: 5%")
+
+CWAfacilities <- paste0("../../CD_Dirs/", cd_state, "/CWAfacilities.png")
+CWA_tag <- tags$img(src = CWAfacilities,style="float: left; width: 65%; height: 60%; margin-right: 5%")
+
+
+RCRAfacilities <- paste0("../../CD_Dirs/", cd_state, "/RCRAfacilities.png")
+RCRA_tag <- tags$img(src = RCRAfacilities,style="float: left; width: 65%; height: 60%; margin-right: 5%")
 
 ```
-<a ><img src="../CD_Dirs/TX/CAAfacilities.png" style="float: left; width: 65%; height: 60%; margin-right: 5%" ></a>
+<a >`r CAA_tag `</a>
 
 <font size="3">**ECHO reports for facilities:**</font>
 
@@ -637,7 +659,7 @@ ggsave("RCRAfacilities.png", RCRAfacilities, path=here("CD_Dirs/TX"), scale = 3,
 * <font size="2">[`r CAAbadactors[9,8] `](`r CAAbadactors[9,5] `)</font>
 * <font size="2">[`r CAAbadactors[10,8] `](`r CAAbadactors[10,5] `)</font>
 
-<a ><img src="../CD_Dirs/TX/CWAfacilities.png" style="float: left; width: 65%; height: 60%; margin-right: 5%" ></a>
+<a >`r CWA_tag `</a>
 
 <font size="3">**ECHO reports for facilities:**</font>
 
@@ -652,7 +674,7 @@ ggsave("RCRAfacilities.png", RCRAfacilities, path=here("CD_Dirs/TX"), scale = 3,
 * <font size="2">[`r CWAbadactors[9,8] `](`r CWAbadactors[9,5] `)</font>
 * <font size="2">[`r CWAbadactors[10,8] `](`r CWAbadactors[10,5] `)</font>
 
-<a ><img src="../CD_Dirs/TX/RCRAfacilities.png" style="float: left; width: 65%; height: 60%; margin-right: 5%" ></a>
+<a ><`r RCRA_tag`</a>
 
 <font size="3">**ECHO reports for facilities:**</font>
 
@@ -684,7 +706,7 @@ The [Clean Air Act (CAA)](https://www.epa.gov/laws-regulations/summary-clean-air
 ```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
 
 #clean up data
-CAAviolations <- `violations_CAA_pg5_TX` 
+CAAviolations <- get(paste0('violations_CAA_pg5_', cd_state)) 
 names(CAAviolations)[1] <- "Date"
 CAAviolations <- CAAviolations[-c(20),]
 CAAviolations$President <- as.character("Bush")
@@ -704,7 +726,7 @@ vCAAgraph <- ggplot(CAAviolations, mapping=aes(x=factor(Date), y=Count, fill=Pre
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
-CAAinspections <- `inspections_CAA_pg5_TX`
+CAAinspections <- get(paste0('inspections_CAA_pg5_', cd_state))
 names(CAAinspections)[1] <- "Date"
 CAAinspections <- CAAinspections[-c(20),]
 CAAinspections$President <- as.character("Bush")
@@ -723,7 +745,7 @@ iCAAgraph <- ggplot(CAAinspections, mapping=aes(x=factor(Date), y=Count, fill=Pr
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
-CAAenforcement <- `enforcements_CAA_pg5_TX`
+CAAenforcement <- get(paste0('enforcements_CAA_pg5_', cd_state))
 CAAenforcement <- CAAenforcement[-c(20),]
 names(CAAenforcement)[1] <- "Date"
 CAAenforcement$President <- as.character("Bush")
@@ -796,7 +818,7 @@ vCWAgraph <- ggplot(CWAviolations, mapping=aes(x=factor(YEAR), y=Count, fill=Pre
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
-CWAinspections <- `inspections_CWA_pg6_TX`
+CWAinspections <- get(paste0('inspections_CWA_pg6_', cd_state))
 names(CWAinspections)[1] <- "Date"
 CWAinspections <- CWAinspections[-c(20),]
 CWAinspections$President <- as.character("Bush")
@@ -815,7 +837,7 @@ iCWAgraph <- ggplot(CWAinspections, mapping=aes(x=factor(Date), y=Count, fill=Pr
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
-CWAenforcement <- `enforcements_CWA_pg6_TX`
+CWAenforcement <- get(paste0('enforcements_CWA_pg6_', cd_state))
 names(CWAenforcement)[1] <- "Date"
 CWAenforcement <- CWAenforcement[-c(20),]
 CWAenforcement$President <- as.character("Bush")
@@ -881,7 +903,7 @@ The [Resource Conservation and Recovery Act (RCRA)](https://www.epa.gov/laws-reg
 ```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
 
 #clean up data
-RCRAviolations <- `violations_RCRA_pg7_TX`
+RCRAviolations <- get(paste0('violations_RCRA_pg7_', cd_state))
 names(RCRAviolations)[1] <- "Date"
 RCRAviolations <- RCRAviolations[-c(20),]
 RCRAviolations$President <- as.character("Bush")
@@ -900,7 +922,7 @@ vRCRAgraph <- ggplot(RCRAviolations, mapping=aes(x=factor(Date), y=Count, fill=P
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
-RCRAinspections <- `inspections_RCRA_pg7_TX`
+RCRAinspections <- get(paste0('inspections_RCRA_pg7_', cd_state))
 names(RCRAinspections)[1] <- "Date"
 RCRAinspections <- RCRAinspections[-c(20),]
 RCRAinspections$President <- as.character("Bush")
@@ -920,7 +942,7 @@ iRCRAgraph <- ggplot(RCRAinspections, mapping=aes(x=factor(Date), y=Count, fill=
 
 
 #clean up data
-RCRAenforcement <- `enforcements_RCRA_pg7_TX`
+RCRAenforcement <- get(paste0('enforcements_RCRA_pg7_', cd_state))
 names(RCRAenforcement)[1] <- "Date"
 RCRAenforcement <- RCRAenforcement[-c(20),]
 RCRAenforcement$President <- as.character("Bush")
@@ -973,7 +995,7 @@ These figures show patterns of RCRA inspections, violations, enforcement actions
 
 # Legislator Information 
 <br />
-<a ><img src="../CD_images/TX_sen`r senators[1,"sen_class"]`.jpeg" style="float: left; width: 25%; margin-right: 5%" ></a>
+<a ><img src="../../CD_images/TX_sen`r senators[1,"sen_class"]`.jpeg" style="float: left; width: 25%; margin-right: 5%" ></a>
 
 
 <h2>[`r senators$name[1]`](`r senators$wikipedia_url[1]`) (`r senators$party[1]`)</h2>
@@ -1041,7 +1063,7 @@ dbDisconnect( conn )
 
 # Legislator Information 
 <br />
-<a ><img src="../CD_images/TX_sen`r senators[2,"sen_class"]`.jpeg" style="float: left; width: 25%; margin-right: 5%" ></a>
+<a ><img src="../../CD_images/TX_sen`r senators[2,"sen_class"]`.jpeg" style="float: left; width: 25%; margin-right: 5%" ></a>
 
 
 <h2>[`r senators$name[2]`](`r senators$wikipedia_url[2]`) (`r senators$party[2]`)</h2>
@@ -1115,7 +1137,7 @@ The data in this report is from EPA’s publicly-available [ECHO database](https
 ### Data reliability coding
 In this report, we have divided data issues into three categories, using transparencies in graphs as well as subtitles to indicate data reliability and completeness. See the table below: 
 
-<a ><img src="../logosandimages/datareliabilitytable.png" style="float: center; width: 100%" ></a>
+<a ><img src="../../logosandimages/datareliabilitytable.png" style="float: center; width: 100%" ></a>
 
 ### Notes on 2020 data
 We do not include data from 2020 because it is be strongly influenced by the EPA’s decision to suspend, from March through August, pollution monitoring requirements for industries that claim to have been impacted by COVID-19. EDGI’s report on this policy [“More Permission to Pollute”](https://envirodatagov.org/more-permission-to-pollute-the-decline-of-epa-enforcement-and-industry-compliance-during-covid/) found that, despite relatively few facilities claiming the COVID exemption, a much larger proportion of facilities are still failing to report environmental data. 
@@ -1200,6 +1222,6 @@ This EEW project aims to make EPA data more directly accessible to the public an
 <font size="2">EDGI is an international network of over 175 members from more than 80 different academic institutions and non-profits, comprised foremost by grassroots volunteer efforts. Since 2016, EDGI has served as a preeminent watchdog group for federal environmental data, generating international effort to duplicate and monitor repositories of public data that are vital to environmental health research and knowledge.
 EDGI’s work has been widely acknowledged, leading to EDGI testifying before Congress on declines in EPA enforcement, and hundreds of mentions in leading national and international media such as _The New York Times_,_The Washington Post_, Vice News, and CNN. For more about our work, read our [2019 Annual Report](https://envirodatagov.org/publication/edgi-annual-report-2019/) and [2020 Annual Report](https://envirodatagov.org/publication/edgi-annual-report-2020/). For more on EDGI see [our website](https://envirodatagov.org/).</font>
 </div>
-<a href="https://www.environmentalenforcementwatch.org/"><img src="../logosandimages/eew_logo.png" style="float: left; width: 9%; margin-left: 30%"></a>
-<a href="https://envirodatagov.org/"><img src="../logosandimages/edgi_logo.png" style="float: right; width: 15%; margin-right: 30%" ></a>
+<a href="https://www.environmentalenforcementwatch.org/"><img src="../../logosandimages/eew_logo.png" style="float: left; width: 9%; margin-left: 30%"></a>
+<a href="https://envirodatagov.org/"><img src="../../logosandimages/edgi_logo.png" style="float: right; width: 15%; margin-right: 30%" ></a>
 
